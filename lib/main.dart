@@ -38,6 +38,14 @@ class _MeasuresConverterAppHomePageState extends State<MeasuresConverterAppHomeP
   final List<String> _allAvailableUnites = ['Meters', 'Kilometers', 'Feet', 'Miles',
     'Grams', 'Kilograms', 'Pounds', 'Ounces', 'Liters', 'Milliliters'];
 
+  /*
+  * This function is called when the user clicks on the 'Convert' button and
+  * contains the logic for all the conversions.
+  *
+  * - If valid conversion, the final result is displayed.
+  * - If invalid conversion, an error message is displayed to try a valid conversion
+  * - If invalid input, an error message is displayed to change the input value.
+   */
   void _convert() {
     final input = double.tryParse(_inputValueField.text);
 
@@ -55,6 +63,7 @@ class _MeasuresConverterAppHomePageState extends State<MeasuresConverterAppHomeP
       return;
     }
 
+    // Map for conversion factors between different metrics
     final conversionFactors = {
       'Meters': {'Kilometers': 0.001, 'Feet': 3.28084, 'Miles': 0.000621371},
       'Kilometers': {'Meters': 1000.0, 'Feet': 3280.84, 'Miles': 0.621371},
